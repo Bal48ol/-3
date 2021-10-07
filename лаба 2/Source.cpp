@@ -8,6 +8,7 @@ std::string converter(int num, int sys)
 {
 	std::string res = "";
 	auto begin = res.begin();
+
 	while (num > 0) 
 	{
 		res.insert(begin, '0' + num % sys + 7 * (num % sys >= 10));
@@ -21,11 +22,12 @@ std::string converter(int num, int sys)
 
 int reconverter(const std::string & num, int sys)
 {
-	auto res = 0;
-	auto rut = num.size();
+	int res = 0;
+	int rut = num.size();
+
 	for (auto i = 0; i < rut; i++)
 	{
-		res += (num[i] - ('0' + 7 * (num[i] > '9'))) * std::pow(sys, rut - i - 1);
+		res = res + (num[i] - ('0' + 7 * (num[i] > '9'))) * std::pow(sys, rut - i - 1);
 	}
 	return res;
 }
@@ -34,13 +36,14 @@ int reconverter(const std::string & num, int sys)
 
 std::vector<std::string> split(std::string str, char rut) 
 {
-	std::vector<std::string> result = {};
 	std::string x = "";
+	std::vector<std::string> res = {};
+
 	for (auto y : str) 
 	{
 		if (y == rut)
 		{
-			result.push_back(x);
+			res.push_back(x);
 			x = "";
 		}
 		else 
@@ -48,8 +51,8 @@ std::vector<std::string> split(std::string str, char rut)
 			x = x + y;
 		}
 	}
-	result.push_back(x);
-	return result;
+	res.push_back(x);
+	return res;
 }
 
 //4
@@ -63,10 +66,11 @@ void swap(int & x, int & y)
 
 void sort(std::vector<int>& x)
 {
-	auto rut = x.size();
-	for (auto i = 0; i < rut; i++)
+	int rut = x.size();
+
+	for (int i = 0; i < rut; i++)
 	{
-		for (auto j = 0; j < rut; j++)
+		for (int j = 0; j < rut; j++)
 		{
 			if (x[i] < x[j])
 			{

@@ -51,7 +51,7 @@ TEST(split, Test8)
 
 //4
 
-TEST(swap, Test10)
+TEST(sort, Test10)
 {
 	std::vector<int> str = { 2, 4, 1, 6, 4, 3, 1 };
 	std::vector<int> res = { 1, 1, 2, 3, 4, 4, 6 };
